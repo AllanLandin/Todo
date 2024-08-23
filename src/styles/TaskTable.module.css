@@ -1,0 +1,47 @@
+.taskTable {
+  color: var(--gray-100);
+  margin-top: 4rem;
+}
+
+.taskTable header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.taskTable header > div {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.taskTable header > div > span {
+  background-color: var(--gray-400);
+  padding: 0.25rem 0.75rem;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.75rem;
+  color: var(--gray-100);
+}
+
+.taskTable header > div:nth-child(1) {
+  color: var(--blue-500);
+}
+
+.taskTable header > div:nth-child(2) {
+  color: var(--purple-500);
+}
+
+.list {
+  list-style: none;
+}
+
+@media (max-width: 400px) {
+  .taskTable header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+}
