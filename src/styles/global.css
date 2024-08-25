@@ -22,3 +22,9 @@
   font-family: "roboto", sans-serif;
   box-sizing: border-box;
 }
+
+@media (max-width: 600px) {
+  :root {
+    font-size: 14px;
+  }
+}
