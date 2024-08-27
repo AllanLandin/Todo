@@ -11,6 +11,10 @@
   cursor: pointer;
 }
 
+.taskCard > p {
+  width: 100%;
+}
+
 .circle {
   color: var(--blue-500);
 }

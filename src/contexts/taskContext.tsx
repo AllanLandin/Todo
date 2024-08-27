@@ -1,7 +1,10 @@
 import { createContext, ReactNode, useState } from "react";
 import { Itask, ITasksContext } from "../utils/types";
 
-export const taskContext = createContext<Partial<ITasksContext>>({});
+export const taskContext = createContext<ITasksContext>({
+  tasks: [],
+  setTasks: () => {},
+});
 
 interface ItaskContextProviderProps {
   children: ReactNode;

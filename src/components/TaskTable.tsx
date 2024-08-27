@@ -2,7 +2,12 @@ import styles from "../styles/TaskTable.module.css";
 
 import { TaskCard } from "./TaskCard";
 
+import { useContext } from "react";
+import { taskContext } from "../contexts/taskContext";
+
 export function TaskTable() {
+  const { tasks } = useContext(taskContext);
+
   return (
     <div className={styles.taskTable}>
       <header>
@@ -16,9 +21,11 @@ export function TaskTable() {
         </div>
       </header>
       <ul className={styles.list}>
-        <li>
-          <TaskCard />
-        </li>
+        {tasks.map((task, index) => (
+          <li key={task.text + index}>
+            <TaskCard checked={task.checked} text={task.text} />
+          </li>
+        ))}
       </ul>
     </div>
   );
