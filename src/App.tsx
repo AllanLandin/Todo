@@ -7,19 +7,20 @@ import { TaskTable } from "./components/TaskTable";
 
 import { ChangeEvent, FormEvent, useContext, useState } from "react";
 import { taskContext } from "./contexts/taskContext";
+import { Task } from "./utils/taskClass";
 
 function App() {
-  const [newTask, setNewTask] = useState<string>("");
+  const [newTaskText, setNewTaskText] = useState<string>("");
   const { tasks, setTasks } = useContext(taskContext);
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
-    setNewTask(event.target.value);
+    setNewTaskText(event.target.value);
   }
 
   function onCreateNewTask(event: FormEvent) {
     event.preventDefault();
-    setTasks([...tasks, { checked: false, text: newTask }]);
-    console.log(tasks);
+    const newTask = new Task({ checked: false, text: newTaskText });
+    setTasks([...tasks, newTask]);
   }
 
   return (
@@ -27,7 +28,10 @@ function App() {
       <Header />
       <div className={styles.container}>
         <form className={styles.formContainer} onSubmit={onCreateNewTask}>
-          <InputTask newTask={newTask} onNewTaskChange={handleNewTaskChange} />
+          <InputTask
+            newTask={newTaskText}
+            onNewTaskChange={handleNewTaskChange}
+          />
           <CreateBtn />
         </form>
         <TaskTable />
