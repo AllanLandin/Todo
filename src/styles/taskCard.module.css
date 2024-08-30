@@ -5,6 +5,7 @@
   padding: 1rem;
   background-color: var(--gray-500);
   border-radius: 5px;
+  text-wrap: wrap;
 }
 
 .taskCard svg:hover {
@@ -12,7 +13,8 @@
 }
 
 .taskCard > p {
-  width: 100%;
+  flex: 1;
+  overflow-wrap: anywhere;
 }
 
 .circle {
